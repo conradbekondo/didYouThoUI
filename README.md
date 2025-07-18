@@ -52,8 +52,6 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Connecting to the API
+The project contains 2 files which should contain configuration values for production/development environments, called `src/environment.ts` and `src/environment.development.ts` respectively.
+To connect to the backend API, the value of the `apiOrigin` property in these files should then point to the origin of the backend API (e.g http://localhost:8080)
