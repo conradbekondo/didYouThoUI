@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'dy-auth',
   imports: [RouterOutlet],
   template: `
-    <div class="container lg:max-w-120">
+    <div class="container lg:max-w-140">
       <router-outlet/>
     </div>
   `,

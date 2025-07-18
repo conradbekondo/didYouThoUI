@@ -15,7 +15,7 @@ import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'dy-login',
-  providers: [
+  viewProviders: [
     provideIcons({
       bootstrapGoogle,
       bootstrapFingerprint
@@ -44,11 +44,11 @@ export class LoginPage {
   readonly signingIn = signal(false);
 
   private doPasskeySignIn() {
-    console.log('passkey sign in');
+    alert('Feature coming soon!');
   }
 
   private doGoogleSignIn() {
-    console.log('google sign in')
+    alert('Feature coming soon!');
   }
 
   altAuthMethods = [
@@ -65,7 +65,7 @@ export class LoginPage {
     event.preventDefault();
     this.signingIn.set(true);
     const { username, password } = this.form.value;
-    this.authService.login(username!, password!).subscribe({
+    this.authService.emailSigning(username!, password!).subscribe({
       error: (e: Error) => {
         toast.error('Could not sign in', { description: e.message });
         this.signingIn.set(false);

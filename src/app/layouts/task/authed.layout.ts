@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dy-base',
+  selector: 'dy-task',
   imports: [],
   template: `
     <p>
       base works!
     </p>
   `,
-  styleUrl: './base.layout.css'
+  styleUrl: './task.layout.css'
 })
-export class BaseLayout {
+export class TaskLayout {
 
 }

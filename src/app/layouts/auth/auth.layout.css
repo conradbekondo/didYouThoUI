@@ -2,4 +2,5 @@
 
 :host {
   @apply flex pt-20 items-start justify-center h-full;
+  background: radial-gradient(circle, transparent 50%, var(--accent) 100%);
 }

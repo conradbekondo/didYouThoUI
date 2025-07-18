@@ -1,0 +1,9 @@
+@reference "tailwindcss";
+
+:host {
+  @apply block;
+}
+
+::ng-deep brn-select label[id*=brn-select] {
+  @apply !hidden;
+}

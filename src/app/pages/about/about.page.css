@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+:host {
+  @apply container mx-auto pt-10 block px-4 space-y-5;
+}

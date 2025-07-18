@@ -10,8 +10,19 @@ import { extractHttpError } from '../../utils';
 export class AuthService {
   private readonly http = inject(HttpClient);
 
-  login(email: string, password: string) {
+  emailSigning(email: string, password: string) {
     return this.http.post(`${environment.apiOrigin}/api/auth/signin`, { username: email, password }).pipe(
+      catchError(extractHttpError)
+    );
+  }
+
+  emailSignUp(email: string, password: string, username: string, role: string[]) {
+    return this.http.post(`${environment.apiOrigin}/api/auth/signup`, {
+      username: username,
+      email,
+      password,
+      role
+    }).pipe(
       catchError(extractHttpError)
     );
   }
