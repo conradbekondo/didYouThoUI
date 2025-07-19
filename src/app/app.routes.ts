@@ -23,10 +23,11 @@ export const routes: Routes = [
     title: 'About us'
   },
   {
-    path: '',
+    path: 'tasks',
     canActivate: [signInGuard],
     loadComponent: () => import('./layouts/task/task.layout').then(m => m.TaskLayout),
     loadChildren: () => import('./task.routes').then(m => m.taskRoutes)
   },
+  { path: '', redirectTo: 'tasks', pathMatch: 'full' },
   { path: '**', title: 'Page not found', component: NotFoundPage }
 ];

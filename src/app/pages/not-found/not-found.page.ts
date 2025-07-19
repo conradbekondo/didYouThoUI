@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgxFuzzyTextComponent } from '@omnedia/ngx-fuzzy-text';
 import { RouterLink } from '@angular/router';
 import { HlmButtonDirective } from '@spartan-ng/helm/button';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'dy-not-found',
@@ -10,5 +11,5 @@ import { HlmButtonDirective } from '@spartan-ng/helm/button';
   styleUrl: './not-found.page.css'
 })
 export class NotFoundPage {
-
+  readonly location = inject(Location);
 }
