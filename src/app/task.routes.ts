@@ -4,7 +4,7 @@ export const taskRoutes: Routes = [
   {
     path: 'overview',
     title: 'Overview',
-    loadComponent: () => import('./pages/overview/overview.page').then(m => m.OverviewPage)
+    loadComponent: () => import('./pages/tasks/overview/overview.page').then(m => m.OverviewPage)
   },
   { path: '', pathMatch: 'full', redirectTo: 'overview' }
 ];

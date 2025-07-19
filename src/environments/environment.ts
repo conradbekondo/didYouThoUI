@@ -1,1 +1,3 @@
-export const environment = {};
+export const environment = {
+  apiOrigin: 'https://didyoutho.onrender.com'
+};

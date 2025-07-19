@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+:host {
+  @apply flex items-center text-sm gap-3 w-full
+}

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'dy-task',
+  selector: 'dy-side-menu',
   imports: [],
   template: `
     <p>
-      base works!
+      side-menu works!
     </p>
   `,
-  styleUrl: './task.layout.css'
+  styleUrl: './side-menu.css'
 })
-export class TaskLayout {
+export class SideMenu {
 
 }

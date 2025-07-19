@@ -25,7 +25,7 @@ export const routes: Routes = [
   {
     path: '',
     canActivate: [signInGuard],
-    loadComponent: () => import('./layouts/task/authed.layout').then(m => m.TaskLayout),
+    loadComponent: () => import('./layouts/task/task.layout').then(m => m.TaskLayout),
     loadChildren: () => import('./task.routes').then(m => m.taskRoutes)
   },
   { path: '**', title: 'Page not found', component: NotFoundPage }
