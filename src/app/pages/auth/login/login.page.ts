@@ -10,15 +10,17 @@ import { HlmInputDirective } from '@spartan-ng/helm/input';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@spartan-ng/brain/forms';
 import { HlmButtonDirective } from '@spartan-ng/helm/button';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapFingerprint, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
+import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
 import { toast } from 'ngx-sonner';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'dy-login',
   viewProviders: [
     provideIcons({
       bootstrapGoogle,
-      bootstrapFingerprint
+      bootstrapFingerprint,
+      bootstrapGithub
     }),
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ],
@@ -54,6 +56,7 @@ export class LoginPage {
   altAuthMethods = [
     { label: 'Google', icon: 'bootstrapGoogle', handler: this.doGoogleSignIn.bind(this) },
     { label: 'Passkey', icon: 'bootstrapFingerprint', handler: this.doPasskeySignIn.bind(this) },
+    { label: 'GitHub', icon: 'bootstrapGithub', link: `${environment.apiOrigin}/oauth2/authorization/github` }
   ];
 
   form = new FormGroup({
