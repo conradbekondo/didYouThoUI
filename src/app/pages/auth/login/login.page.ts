@@ -54,7 +54,7 @@ export class LoginPage {
   }
 
   altAuthMethods = [
-    { label: 'Google', icon: 'bootstrapGoogle', handler: this.doGoogleSignIn.bind(this) },
+    { label: 'Google', icon: 'bootstrapGoogle', link: `${environment.apiOrigin}/oauth2/authorization/google` },
     { label: 'Passkey', icon: 'bootstrapFingerprint', handler: this.doPasskeySignIn.bind(this) },
     { label: 'GitHub', icon: 'bootstrapGithub', link: `${environment.apiOrigin}/oauth2/authorization/github` }
   ];
