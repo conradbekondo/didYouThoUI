@@ -1,22 +1,21 @@
-import { Component, inject, signal } from '@angular/core';
-import { HlmCardImports } from '@spartan-ng/helm/card';
-import { HlmSeparatorDirective } from '@spartan-ng/helm/separator';
-import { BrnSeparatorComponent } from '@spartan-ng/brain/separator';
-import { AuthService } from '../../../services/auth.service';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { dispatch } from '@ngxs/store';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@spartan-ng/brain/forms';
+import { BrnSeparatorComponent } from '@spartan-ng/brain/separator';
+import { HlmButtonDirective } from '@spartan-ng/helm/button';
+import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmErrorDirective, HlmFormFieldComponent } from '@spartan-ng/helm/form-field';
 import { HlmInputDirective } from '@spartan-ng/helm/input';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@spartan-ng/brain/forms';
-import { HlmButtonDirective } from '@spartan-ng/helm/button';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
-import { toast } from 'ngx-sonner';
-import { environment } from '../../../../environments/environment';
-import { actionMatcher, dispatch } from '@ngxs/store';
-import { isActionLoading } from '../../../../utils';
+import { HlmSeparatorDirective } from '@spartan-ng/helm/separator';
 import { CredentialSignIn } from '@state/auth/actions';
+import { toast } from 'ngx-sonner';
 import { z } from 'zod';
+import { environment } from '../../../../environments/environment.development';
+import { isActionLoading } from '../../../../utils';
 
 const FormSchema = z.object({
   username: z.string(),
@@ -50,7 +49,6 @@ const FormSchema = z.object({
 })
 export class LoginPage {
   protected route = inject(ActivatedRoute);
-  private authService = inject(AuthService);
   private router = inject(Router);
   readonly signingIn = isActionLoading(CredentialSignIn);
   private credentialSignIn = dispatch(CredentialSignIn);

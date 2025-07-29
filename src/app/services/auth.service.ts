@@ -3,13 +3,18 @@ import { inject, Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { extractHttpError } from '../../utils';
-import { LoginResponse } from '../../types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private readonly http = inject(HttpClient);
+
+  signOut() {
+    return this.http.post(`${environment.apiOrigin}/api/auth/signout`, {}).pipe(
+      catchError(extractHttpError)
+    )
+  }
 
   credentialSignIn(email: string, password: string) {
     return this.http.post(`${environment.apiOrigin}/api/auth/signin`, {

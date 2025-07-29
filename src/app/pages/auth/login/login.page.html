@@ -4,38 +4,70 @@
     <p class="text-sm text-muted-foreground">Using</p>
     <div class="flex items-center gap-3">
       @for (method of oauthMethods; track $index) {
-        <button size="sm" variant="outline" class="rounded-full" hlmBtn type="button" (click)="method.handler()">
-            <ng-icon [name]="method.icon" size="18"/>
-            <span>{{ method.label }}</span>
-          </button>
+      <button
+        size="sm"
+        variant="outline"
+        class="rounded-full"
+        hlmBtn
+        type="button"
+        (click)="method.handler()"
+      >
+        <ng-icon [name]="method.icon" size="18" />
+        <span>{{ method.label }}</span>
+      </button>
       }
     </div>
   </div>
-  <brn-separator hlmSeparator/>
+  <brn-separator hlmSeparator />
   <div hlmCardContent class="space-y-3">
     <p class="text-sm text-muted-foreground">Or using your credentials</p>
     <hlm-form-field>
-      <input formControlName="username" placeholder="Username" hlmInput autocomplete="username">
+      <input
+        formControlName="username"
+        placeholder="Username"
+        hlmInput
+        autocomplete="username"
+      />
       <hlm-error>This field is required</hlm-error>
     </hlm-form-field>
     <hlm-form-field>
-      <input formControlName="password" type="password" placeholder="Password" hlmInput autocomplete="current-password">
+      <input
+        formControlName="password"
+        type="password"
+        placeholder="Password"
+        hlmInput
+        autocomplete="current-password"
+      />
       <hlm-error>This field is required</hlm-error>
     </hlm-form-field>
   </div>
-  <brn-separator hlmSeparator/>
+  <brn-separator hlmSeparator />
   <div hlmCardFooter>
     <div class="space-y-2 w-full">
-      <button class="block w-full items-center" [disabled]="signingIn() || form.invalid" type="submit" hlmBtn>
+      <button
+        class="block w-full items-center gap-3"
+        [disabled]="signingIn() || form.invalid"
+        type="submit"
+        hlmBtn
+      >
         <span>Sign in</span>
       </button>
-      <div><a class="text-sm text-accent-foreground underline" routerLink="../reset-password"
-              [relativeTo]="route">Forgot
-        password</a></div>
       <div>
-        <a class="text-sm text-accent-foreground underline" queryParamsHandling="preserve" routerLink="../signup"
-           [relativeTo]="route">Sign up
-          instead</a>
+        <a
+          class="text-sm text-accent-foreground underline"
+          routerLink="../reset-password"
+          [relativeTo]="route"
+          >Forgot password</a
+        >
+      </div>
+      <div>
+        <a
+          class="text-sm text-accent-foreground underline"
+          queryParamsHandling="preserve"
+          routerLink="../signup"
+          [relativeTo]="route"
+          >Sign up instead</a
+        >
       </div>
     </div>
   </div>

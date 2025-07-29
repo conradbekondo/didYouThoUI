@@ -1,9 +1,17 @@
 @reference "tailwindcss";
 
 :host {
-  @apply grid grid-rows-[auto_1fr_auto] gap-2 h-full lg:w-[4rem] transition-all;
+  @apply grid grid-rows-[auto_1fr_4rem] gap-2 h-full lg:w-[4rem] transition-all;
 }
 
 :host[expanded="true"] {
   @apply w-[18rem];
+}
+
+li > a.active-route{
+  @apply text-[var(--primary-foreground)] font-bold;
+}
+
+li:has(a.active-route) {
+  @apply bg-[var(--primary)];
 }

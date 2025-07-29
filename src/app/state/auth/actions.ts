@@ -1,5 +1,9 @@
 const prefix = '[auth]';
 
+export class SignOut {
+  static type = `${prefix} sign out`;
+}
+
 export class CredentialSignIn {
   static type = `${prefix} credential sign in`;
 
@@ -16,4 +20,8 @@ export class CompleteGithubSignIn {
 
 export class SignedIn {
   static type = `${prefix} signed-in`;
+}
+
+export class SignedOut {
+  static type = `${prefix} signed-out`;
 }
