@@ -1,10 +1,13 @@
-import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { Store } from '@ngxs/store';
+import { isUserSignedIn } from '@state/selectors';
 
-export const authGuard: (redirect: string) => CanActivateFn = redirect => (route, state) => {
-  const isUserSignedIn = true; // TODO: perform an actual check later.
+export const authGuard: (redirect: string) => CanActivateFn = redirect => (_, state) => {
   const router = inject(Router);
+  const store = inject(Store);
+  const signedIn = store.selectSnapshot(isUserSignedIn);
 
-  if (isUserSignedIn) return true;
+  if (signedIn) return true;
   return router.createUrlTree([redirect], { queryParams: { 'continue': encodeURIComponent(state.url) } });
 };

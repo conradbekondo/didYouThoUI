@@ -10,15 +10,17 @@ import { HlmInputDirective } from '@spartan-ng/helm/input';
 import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@spartan-ng/brain/forms';
 import { HlmButtonDirective } from '@spartan-ng/helm/button';
 import { NgIcon, provideIcons } from '@ng-icons/core';
-import { bootstrapFingerprint, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
+import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
 import { toast } from 'ngx-sonner';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'dy-login',
   viewProviders: [
     provideIcons({
       bootstrapGoogle,
-      bootstrapFingerprint
+      bootstrapFingerprint,
+      bootstrapGithub
     }),
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ],
@@ -48,12 +50,17 @@ export class LoginPage {
   }
 
   private doGoogleSignIn() {
-    alert('Feature coming soon!');
+    location.href = `${environment.apiOrigin}/oauth2/authorization/google`;
   }
 
-  altAuthMethods = [
+  private doGitHubSignIn() {
+    location.href = `${environment.apiOrigin}/oauth2/authorization/github`;
+  }
+
+  oauthMethods = [
     { label: 'Google', icon: 'bootstrapGoogle', handler: this.doGoogleSignIn.bind(this) },
     { label: 'Passkey', icon: 'bootstrapFingerprint', handler: this.doPasskeySignIn.bind(this) },
+    { label: 'GitHub', icon: 'bootstrapGithub', handler: this.doGitHubSignIn.bind(this) }
   ];
 
   form = new FormGroup({
@@ -65,7 +72,7 @@ export class LoginPage {
     event.preventDefault();
     this.signingIn.set(true);
     const { username, password } = this.form.value;
-    this.authService.emailSigning(username!, password!).subscribe({
+    this.authService.credentialSignIn(username!, password!).subscribe({
       error: (e: Error) => {
         toast.error('Could not sign in', { description: e.message });
         this.signingIn.set(false);

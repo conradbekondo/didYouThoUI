@@ -1,8 +1,9 @@
-import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { extractHttpError } from '../../utils';
+import { Principal } from '../../types';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ import { extractHttpError } from '../../utils';
 export class AuthService {
   private readonly http = inject(HttpClient);
 
-  emailSigning(email: string, password: string) {
-    return this.http.post(`${environment.apiOrigin}/api/auth/signin`, { username: email, password }).pipe(
+  credentialSignIn(email: string, password: string) {
+    return this.http.post<Principal>(`${environment.apiOrigin}/api/auth/signin`, { username: email, password }).pipe(
       catchError(extractHttpError)
     );
   }
