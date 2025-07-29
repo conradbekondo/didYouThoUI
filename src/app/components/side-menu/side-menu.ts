@@ -27,14 +27,14 @@ type MenuItem = {
   template: `
     <div class="p-2 flex" [class.justify-center]="!isOpen">
       <a routerLink="/">
-        <img alt="brand" priority ngSrc="/favicon.ico" width="40" height="40"/>
+        <img alt="brand" priority ngSrc="/favicon.ico" width="35" height="40"/>
       </a>
     </div>
     <div class="px-2 overflow-y-auto">
       <ul class="flex flex-col gap-3 list-none">
         @for (item of menuItems; track $index) {
-          <li class="flex items-center" [class.justify-center]="!isOpen">
-            <a [routerLink]="item.path" routerLinkActive="text-accent-foreground"
+          <li class="flex items-center justify-center rounded-md px-1 py-2" [class.justify-center]="!isOpen">
+            <a [routerLink]="item.path" routerLinkActive="active-route"
                [routerLinkActiveOptions]="{exact: false}" class="flex items-center gap-2 text-accent-foreground/50">
               <ng-icon [name]="item.icon" size="25"/>
               @if (isOpen) {
@@ -45,7 +45,7 @@ type MenuItem = {
         }
       </ul>
     </div>
-    <div class="bg-green-500 py-2">
+    <div class="bg-green-500">
       test
     </div>
   `,
@@ -55,7 +55,7 @@ export class SideMenu {
   readonly menuItems: MenuItem[] = [
     { label: 'Overview', icon: 'lucideLayoutDashboard', path: 'overview' },
     { label: 'Tasks', icon: 'lucideListChecks', path: 'all' }
-  ]
+  ];
 
   @HostBinding('attr.expanded')
   isOpen = false;

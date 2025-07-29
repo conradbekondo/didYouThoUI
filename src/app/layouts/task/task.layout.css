@@ -1,5 +1,5 @@
 @reference "tailwindcss";
 
 :host {
-  @apply grid grid-rows-[auto_2rem_1fr_auto] lg:grid-cols-[auto_1fr] h-full;
+  @apply grid grid-rows-[auto_2rem_1fr_2rem] lg:grid-cols-[auto_1fr] h-full;
 }

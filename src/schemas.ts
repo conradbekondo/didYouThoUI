@@ -10,9 +10,9 @@ export const PrincipalSchema = z.object({
 })
 export const AuthStateSchema = z.object({
   token: z.jwt().optional(),
-  provider: SessionAuthSchemeSchema,
+  provider: SessionAuthSchemeSchema.optional(),
   userInfo: PrincipalSchema.optional(),
-  sessionExpiresAt: z.date()
+  sessionExpiresAt: z.coerce.date().optional()
 });
 export const LoginResponseSchema = z.object({
   expiresAt: z.coerce.date(),

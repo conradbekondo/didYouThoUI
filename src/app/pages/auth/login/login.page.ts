@@ -1,8 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HlmCardImports } from '@spartan-ng/helm/card';
 import { HlmSeparatorDirective } from '@spartan-ng/helm/separator';
 import { BrnSeparatorComponent } from '@spartan-ng/brain/separator';
-import { AuthService } from '../../../services/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { HlmErrorDirective, HlmFormFieldComponent } from '@spartan-ng/helm/form-field';
@@ -13,7 +12,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
 import { toast } from 'ngx-sonner';
 import { environment } from '../../../../environments/environment';
-import { actionMatcher, dispatch } from '@ngxs/store';
+import { dispatch } from '@ngxs/store';
 import { isActionLoading } from '../../../../utils';
 import { CredentialSignIn } from '@state/auth/actions';
 import { z } from 'zod';
@@ -50,7 +49,6 @@ const FormSchema = z.object({
 })
 export class LoginPage {
   protected route = inject(ActivatedRoute);
-  private authService = inject(AuthService);
   private router = inject(Router);
   readonly signingIn = isActionLoading(CredentialSignIn);
   private credentialSignIn = dispatch(CredentialSignIn);

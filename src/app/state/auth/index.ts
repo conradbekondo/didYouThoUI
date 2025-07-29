@@ -2,11 +2,11 @@ import {inject, Injectable} from '@angular/core';
 import {Action, State, StateContext, StateToken} from '@ngxs/store';
 import {AuthStateModel} from "../../../types";
 import {AuthService} from '../../services/auth.service';
-import {CompleteGithubSignIn, CredentialSignIn, SignedIn} from './actions';
-import {jwtDecode} from 'jwt-decode';
-import {LoginResponseSchema, PrincipalSchema} from '../../../schemas';
+import {CompleteGithubSignIn, CredentialSignIn, SignedIn, SignedOut} from './actions';
+import {LoginResponseSchema} from '../../../schemas';
 import {patch} from '@ngxs/store/operators';
 import {map, tap} from "rxjs";
+import {Navigate} from "@ngxs/router-plugin";
 
 export const AUTH_STATE = new StateToken<AuthStateModel>('auth');
 type Context = StateContext<AuthStateModel>;
@@ -17,6 +17,12 @@ type Context = StateContext<AuthStateModel>;
 @Injectable()
 export class AuthState {
     private readonly authService = inject(AuthService);
+
+    @Action(SignedOut, {cancelUncompleted: true})
+    onSignedOut(ctx: Context) {
+        ctx.setState({});
+        ctx.dispatch(new Navigate(['/']));
+    }
 
     @Action(CredentialSignIn, {cancelUncompleted: true})
     onCredentialSignIn(ctx: Context, {email, password}: CredentialSignIn) {
