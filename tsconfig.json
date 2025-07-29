@@ -13,6 +13,9 @@
     "target": "ES2022",
     "module": "preserve",
     "paths": {
+      "@state/*": [
+        "./src/app/state/*"
+      ],
       "@spartan-ng/helm/card": [
         "./libs/ui/ui-card-helm/src/index.ts"
       ],

@@ -3,19 +3,11 @@
     <h1 class="text-xl m-0" hlmCardTitle>Connect to Your Account</h1>
     <p class="text-sm text-muted-foreground">Using</p>
     <div class="flex items-center gap-3">
-      @for (method of altAuthMethods; track $index) {
-        @if (method.link) {
-          <a [href]="method.link" size="sm" variant="outline" class="rounded-full" hlmBtn>
-            <ng-icon [name]="method.icon" size="18"/>
-            <span> {{ method.label }}</span>
-          </a>
-        }
-        @if (method.handler) {
-          <button size="sm" variant="outline" class="rounded-full" hlmBtn type="button" (click)="method.handler()">
+      @for (method of oauthMethods; track $index) {
+        <button size="sm" variant="outline" class="rounded-full" hlmBtn type="button" (click)="method.handler()">
             <ng-icon [name]="method.icon" size="18"/>
             <span>{{ method.label }}</span>
           </button>
-        }
       }
     </div>
   </div>

@@ -41,6 +41,18 @@ importers:
       '@ng-icons/lucide':
         specifier: '>=29.0.0'
         version: 32.0.0
+      '@ngxs/logger-plugin':
+        specifier: ^20.1.0
+        version: 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)
+      '@ngxs/router-plugin':
+        specifier: ^20.1.0
+        version: 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/router@20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)
+      '@ngxs/storage-plugin':
+        specifier: ^20.1.0
+        version: 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)(ts-morph@21.0.1)
+      '@ngxs/store':
+        specifier: ^20.1.0
+        version: 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@omnedia/ngx-fuzzy-text':
         specifier: ^3.0.0
         version: 3.0.0(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))
@@ -53,6 +65,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      jwt-decode:
+        specifier: ^4.0.0
+        version: 4.0.0
       ngx-sonner:
         specifier: '>=3.0.0'
         version: 3.1.0(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))
@@ -1821,6 +1836,35 @@ packages:
   '@ng-icons/lucide@32.0.0':
     resolution: {integrity: sha512-fSwN6gYZA8XjMhdDOUQZGovk6aNsLbM5maqaR62zUMlpTuhM4U/IR9sd4BmxxJrrX3SbP6Pqx7Uzk65aOoWNpA==}
 
+  '@ngxs/logger-plugin@20.1.0':
+    resolution: {integrity: sha512-ocRgzCJ0kPGHwnRi7mbeqBS+QvIdz2ffBIb4LGab5OwHVJDSV0JTVvKNAH/LsSaqIKLLwW+eUQT41zw2nBkmJA==}
+    peerDependencies:
+      '@angular/core': '>=20.0.0 <21.0.0'
+      '@ngxs/store': ^20.1.0 || ^20.1.0-dev
+      rxjs: '>=7.0.0'
+
+  '@ngxs/router-plugin@20.1.0':
+    resolution: {integrity: sha512-EX7ssXozr7ROefTn/6Oev5uVrbk93g5D7vFb6p9e3uueh46lJLLDDf48dQah16XKVise+pyXA9KM/BUBw838sA==}
+    peerDependencies:
+      '@angular/core': '>=20.0.0 <21.0.0'
+      '@angular/router': '>=20.0.0 <21.0.0'
+      '@ngxs/store': ^20.1.0 || ^20.1.0-dev
+      rxjs: '>=7.0.0'
+
+  '@ngxs/storage-plugin@20.1.0':
+    resolution: {integrity: sha512-sO/CmhOdDWprZttrv2bjeDtauOx3g5oTQ+8TDSX3WiA24I+8bOx7Pe9aLfUn/H7GjD0kYMz29RUTcEBmnREa5w==}
+    peerDependencies:
+      '@angular/core': '>=20.0.0 <21.0.0'
+      '@ngxs/store': ^20.1.0 || ^20.1.0-dev
+      rxjs: '>=7.0.0'
+      ts-morph: 21.0.1
+
+  '@ngxs/store@20.1.0':
+    resolution: {integrity: sha512-Ypceg/FS8NBFxQqiKCa1PzLVLevklHSC2marvwcLwv+ZWpSn43qFSRCeDdcpdxmrZuqdilCLpD45IY3+/1METQ==}
+    peerDependencies:
+      '@angular/core': '>=20.0.0 <21.0.0'
+      rxjs: '>=7.0.0'
+
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -2410,6 +2454,9 @@ packages:
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
+
+  '@ts-morph/common@0.22.0':
+    resolution: {integrity: sha512-HqNBuV/oIlMKdkLshXd1zKBqNQCsuPEsgQOkfFQ/eUKjRlwndXW1AjN9LVkBEIukm00gGXSRmfkl0Wv5VXLnlw==}
 
   '@tufjs/canonical-json@2.0.0':
     resolution: {integrity: sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA==}
@@ -3062,6 +3109,9 @@ packages:
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
+
+  code-block-writer@12.0.0:
+    resolution: {integrity: sha512-q4dMFMlXtKR3XNBHyMHt/3pwYNA69EDk00lloMOaaUMKPUXBw6lpXtbu3MMVG6/uOihGnRDOlkyqsONEUj60+w==}
 
   color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}
@@ -4543,6 +4593,10 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
+  jwt-decode@4.0.0:
+    resolution: {integrity: sha512-+KJGIyHgkGuIq3IEBNftfhW/LfWhXUIY6OmyVWjliu5KH1y0fw7VQ8YndE2O4qZdMSd9SqbnC8GOcZEy0Om7sA==}
+    engines: {node: '>=18'}
+
   karma-chrome-launcher@3.2.0:
     resolution: {integrity: sha512-rE9RkUPI7I9mAxByQWkGJFXfFD6lE4gC5nPuZdobf/QdTEJI6EU4yIay/cfU/xV4ZxlM5JiTv7zWYgA64NpS5Q==}
 
@@ -5333,6 +5387,9 @@ packages:
   parseurl@1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
+
+  path-browserify@1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
   path-exists@3.0.0:
     resolution: {integrity: sha512-bpC7GYwiDYQ4wYLe+FA8lhRjhQCMcQGuSgGGqDkg/QerRWw9CmGRT0iSOVRSZJ29NMLZgIzqaljJ63oaL4NIJQ==}
@@ -6498,6 +6555,9 @@ packages:
     peerDependencies:
       typescript: '*'
       webpack: ^5.0.0
+
+  ts-morph@21.0.1:
+    resolution: {integrity: sha512-dbDtVdEAncKctzrVZ+Nr7kHpHkv+0JDJb2MjjpBaj8bFeCkePU9rHfMklmhuLFnpeq/EJZk2IhStY6NzqgjOkg==}
 
   tsconfig-paths-webpack-plugin@4.0.0:
     resolution: {integrity: sha512-fw/7265mIWukrSHd0i+wSwx64kYUSAKPfxRDksjKIYTxSAp9W9/xcZVBF4Kl0eqQd5eBpAQ/oQrc5RyM/0c1GQ==}
@@ -8910,6 +8970,35 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@ngxs/logger-plugin@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)
+      '@ngxs/store': 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
+  '@ngxs/router-plugin@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/router@20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)
+      '@angular/router': 20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@20.1.2(@angular/common@20.1.2(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)))(rxjs@7.8.2)
+      '@ngxs/store': 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
+  '@ngxs/storage-plugin@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(rxjs@7.8.2)(ts-morph@21.0.1)':
+    dependencies:
+      '@angular/core': 20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)
+      '@ngxs/store': 20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
+      rxjs: 7.8.2
+      ts-morph: 21.0.1
+      tslib: 2.8.1
+
+  '@ngxs/store@20.1.0(@angular/core@20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 20.1.2(@angular/compiler@20.1.2)(rxjs@7.8.2)(zone.js@0.15.1)
+      rxjs: 7.8.2
+      tslib: 2.8.1
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -9746,6 +9835,13 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
+  '@ts-morph/common@0.22.0':
+    dependencies:
+      fast-glob: 3.3.3
+      minimatch: 9.0.5
+      mkdirp: 3.0.1
+      path-browserify: 1.0.1
+
   '@tufjs/canonical-json@2.0.0': {}
 
   '@tufjs/models@3.0.1':
@@ -10505,6 +10601,8 @@ snapshots:
   clsx@2.1.1: {}
 
   co@4.6.0: {}
+
+  code-block-writer@12.0.0: {}
 
   color-convert@1.9.3:
     dependencies:
@@ -12170,6 +12268,8 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
+  jwt-decode@4.0.0: {}
+
   karma-chrome-launcher@3.2.0:
     dependencies:
       which: 1.3.1
@@ -13107,6 +13207,8 @@ snapshots:
       entities: 6.0.1
 
   parseurl@1.3.3: {}
+
+  path-browserify@1.0.1: {}
 
   path-exists@3.0.0: {}
 
@@ -14333,6 +14435,11 @@ snapshots:
       source-map: 0.7.4
       typescript: 5.8.3
       webpack: 5.99.9
+
+  ts-morph@21.0.1:
+    dependencies:
+      '@ts-morph/common': 0.22.0
+      code-block-writer: 12.0.0
 
   tsconfig-paths-webpack-plugin@4.0.0:
     dependencies:
