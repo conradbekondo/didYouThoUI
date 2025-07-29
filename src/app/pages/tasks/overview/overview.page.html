@@ -1,1 +1,26 @@
-<p>overview works!</p>
+<section class="container mx-auto">
+  <dy-weather [principal]="principal()" />
+</section>
+<brn-separator hlmSeparator />
+<section class="container mx-auto space-y-4">
+  <p class="font-extrabold text-3xl">Tasks</p>
+  <div class="grid gap-x-10 grid-cols-[repeat(auto-fit,minmax(150px,200px))]">
+    @for(stat of taskStats; track $index) {
+    <div hlmCard>
+      <div hlmCardHeader>
+        <h1 class="font-extrabold text-2xl" hlmCardTitle>
+          @if(stat.valueType == 'number') {
+          {{ stat.value | number }}
+          } @else {
+          {{ stat.value | percent }}
+          }
+        </h1>
+        <p hlmCardDescription>{{ stat.label }}</p>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+<section class="container mx-auto">
+  <p>chart showing creation/completion task rates</p>
+</section>

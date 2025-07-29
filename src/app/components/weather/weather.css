@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+:host {
+  @apply inline-flex items-center-safe gap-3;
+}

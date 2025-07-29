@@ -1,0 +1,23 @@
+@defer (when !weatherData.isLoading()) {
+<img [src]="weatherData.value()?.current?.condition?.icon" width="100" />
+<div class="space-y-1">
+  <div class="text-2xl font-bold flex items-center capitalize">
+    Good {{ daySection() }}, {{ principal()?.names }}
+  </div>
+  <div class="flex items-center">
+    <span>{{ weatherData.value()?.current?.temp_c }}&deg;C</span>
+    <ng-icon name="lucideDot" />
+    <span>{{ weatherData.value()?.current?.temp_f }}&deg;F</span>
+  </div>
+  <p class="text-muted-foreground text-sm">
+    {{ weatherData.value()?.current?.condition?.text }} in
+    {{ weatherData.value()?.location?.name }}
+  </p>
+</div>
+}@loading(minimum 5s) {
+<hlm-skeleton class="h-[40px] w-[40px] rounded-full" />
+<div class="space-y-2">
+  <hlm-skeleton class="h-[10px] w-[200px] rounded-full" />
+  <hlm-skeleton class="h-[10px] w-[100px] rounded-full" />
+</div>
+}
