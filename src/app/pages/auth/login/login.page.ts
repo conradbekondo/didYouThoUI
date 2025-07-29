@@ -13,6 +13,15 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { bootstrapFingerprint, bootstrapGithub, bootstrapGoogle } from '@ng-icons/bootstrap-icons';
 import { toast } from 'ngx-sonner';
 import { environment } from '../../../../environments/environment';
+import { actionMatcher, dispatch } from '@ngxs/store';
+import { isActionLoading } from '../../../../utils';
+import { CredentialSignIn } from '@state/auth/actions';
+import { z } from 'zod';
+
+const FormSchema = z.object({
+  username: z.string(),
+  password: z.string()
+})
 
 @Component({
   selector: 'dy-login',
@@ -43,7 +52,8 @@ export class LoginPage {
   protected route = inject(ActivatedRoute);
   private authService = inject(AuthService);
   private router = inject(Router);
-  readonly signingIn = signal(false);
+  readonly signingIn = isActionLoading(CredentialSignIn);
+  private credentialSignIn = dispatch(CredentialSignIn);
 
   private doPasskeySignIn() {
     alert('Feature coming soon!');
@@ -70,15 +80,12 @@ export class LoginPage {
 
   onFormSubmit(event: SubmitEvent) {
     event.preventDefault();
-    this.signingIn.set(true);
-    const { username, password } = this.form.value;
-    this.authService.credentialSignIn(username!, password!).subscribe({
+    const { username, password } = FormSchema.parse(this.form.value);
+    this.credentialSignIn(username, password).subscribe({
       error: (e: Error) => {
         toast.error('Could not sign in', { description: e.message });
-        this.signingIn.set(false);
       },
       complete: () => {
-        this.signingIn.set(false);
         const redirect = decodeURIComponent(this.route.snapshot.queryParamMap.get('continue') ?? '/');
         this.router.navigate([redirect]);
       }
