@@ -2,7 +2,7 @@
 <img [src]="weatherData.value()?.current?.condition?.icon" width="100" />
 <div class="space-y-1">
   <div class="text-2xl font-bold flex items-center capitalize">
-    Good {{ daySection() }}, {{ principal()?.names }}
+    Good {{ daySection() }}, {{ principal()?.name }}
   </div>
   <div class="flex items-center">
     <span>{{ weatherData.value()?.current?.temp_c }}&deg;C</span>
