@@ -63,6 +63,7 @@ export class SignUpPage {
   readonly form = new FormGroup({
     role: new FormControl<string | null>(null, Validators.required),
     username: new FormControl('', Validators.required),
+    name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     // confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -70,9 +71,9 @@ export class SignUpPage {
 
   onFormSubmit(event: SubmitEvent) {
     event.preventDefault();
-    const { username, password, email, role } = this.form.value;
+    const { username, name, password, email, role } = this.form.value;
     this.signingUp.set(true);
-    this.authService.emailSignUp(email!, password!, username!, [role!]).subscribe({
+    this.authService.emailSignUp(email!, password!, username!, name!, [role!]).subscribe({
       error: (e: Error) => {
         this.signingUp.set(false);
         toast.error('Could not sign up', { description: e.message })

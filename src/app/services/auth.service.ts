@@ -25,12 +25,13 @@ export class AuthService {
     );
   }
 
-  emailSignUp(email: string, password: string, username: string, role: string[]) {
+  emailSignUp(email: string, password: string, username: string, name: String, role: string[]) {
     return this.http.post(`${environment.apiOrigin}/api/auth/signup`, {
       username: username,
-      email,
-      password,
-      role
+      name: name,
+      email: email,
+      password: password,
+      role: role
     }).pipe(
       catchError(extractHttpError)
     );
