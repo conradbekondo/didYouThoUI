@@ -23,12 +23,16 @@
     <p class="text-sm text-muted-foreground">Or using your credentials</p>
     <hlm-form-field>
       <input
-        formControlName="username"
+        formControlName="email"
         placeholder="Email"
         hlmInput
         autocomplete="username"
       />
-      <hlm-error>This field is required</hlm-error>
+      <hlm-error>
+        @if(form.controls.email.hasError('required')) { This field is required
+        }@else if (form.controls.email.hasError('email')) { Invalid email
+        address }
+      </hlm-error>
     </hlm-form-field>
     <hlm-form-field>
       <input

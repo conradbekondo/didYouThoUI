@@ -18,8 +18,8 @@ import { environment } from '../../../../environments/environment.development';
 import { isActionLoading } from '../../../../utils';
 
 const FormSchema = z.object({
-  email: z.string(),
-  password: z.email()
+  email: z.email(),
+  password: z.string()
 })
 
 @Component({
