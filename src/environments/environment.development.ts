@@ -1,3 +1,3 @@
 export const environment = {
-  apiOrigin: 'http://localhost:8080',
+  apiOrigin: '/api',
 } as const;
