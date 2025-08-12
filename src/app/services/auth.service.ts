@@ -11,13 +11,13 @@ export class AuthService {
   private readonly http = inject(HttpClient);
 
   signOut() {
-    return this.http.post(`${environment.apiOrigin}/auth/signout`, {}).pipe(
+    return this.http.post(`${environment.apiBaseUrl}/auth/signout`, {}).pipe(
       catchError(extractHttpError)
     )
   }
 
   credentialSignIn(email: string, password: string) {
-    return this.http.post(`${environment.apiOrigin}/auth/signin`, {
+    return this.http.post(`${environment.apiBaseUrl}/auth/signin`, {
       username: email,
       password
     }).pipe(
@@ -26,11 +26,12 @@ export class AuthService {
   }
 
   emailSignUp(email: string, password: string, username: string, role: string[]) {
-    return this.http.post(`${environment.apiOrigin}/auth/signup`, {
+    return this.http.post(`${environment.apiBaseUrl}/auth/signup`, {
       username: username,
-      email,
-      password,
-      role
+      name: name,
+      email: email,
+      password: password,
+      role: role
     }).pipe(
       catchError(extractHttpError)
     );

@@ -58,11 +58,11 @@ export class LoginPage {
   }
 
   private doGoogleSignIn() {
-    location.href = `${environment.apiOrigin}/oauth2/authorization/google`;
+    location.href = `${environment.apiBaseUrl}/oauth2/authorization/google`;
   }
 
   private doGitHubSignIn() {
-    location.href = `${environment.apiOrigin}/oauth2/authorization/github`;
+    location.href = `${environment.apiBaseUrl}/oauth2/authorization/github`;
   }
 
   oauthMethods = [

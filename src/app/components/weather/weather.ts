@@ -24,7 +24,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class Weather {
   readonly principal = input<Principal>();
-  readonly weatherData = httpResource<WeatherData>(() => `${environment.apiOrigin}/weather-info/current`);
+  readonly weatherData = httpResource<WeatherData>(() => `${environment.apiBaseUrl}/weather-info/current`);
   private readonly _currentTime = interval(3600000).pipe(
     map(() => new Date())
   )

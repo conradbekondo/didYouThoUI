@@ -7,7 +7,7 @@ import { isUserSignedIn } from '@state/selectors';
 import { SignedOut } from '@state/auth/actions';
 
 export const credentialInterceptor: HttpInterceptorFn = (req, next) => {
-  if (req.url.startsWith(environment.apiOrigin)) {
+  if (req.url.startsWith(environment.apiBaseUrl)) {
     const store = inject(Store);
     const signedIn = store.selectSnapshot(isUserSignedIn);
     return next(req.clone({ withCredentials: true })).pipe(
