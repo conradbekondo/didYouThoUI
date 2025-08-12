@@ -18,8 +18,8 @@ import { environment } from '../../../../environments/environment.development';
 import { isActionLoading } from '../../../../utils';
 
 const FormSchema = z.object({
-  username: z.string(),
-  password: z.string()
+  email: z.string(),
+  password: z.email()
 })
 
 @Component({
@@ -73,13 +73,13 @@ export class LoginPage {
 
   form = new FormGroup({
     password: new FormControl('', [Validators.required]),
-    username: new FormControl('', [Validators.required])
+    email: new FormControl('', [Validators.required, Validators.email])
   });
 
   onFormSubmit(event: SubmitEvent) {
     event.preventDefault();
-    const { username, password } = FormSchema.parse(this.form.value);
-    this.credentialSignIn(username, password).subscribe({
+    const { email, password } = FormSchema.parse(this.form.value);
+    this.credentialSignIn(email, password).subscribe({
       error: (e: Error) => {
         toast.error('Could not sign in', { description: e.message });
       },

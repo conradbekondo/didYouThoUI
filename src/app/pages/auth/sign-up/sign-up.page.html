@@ -22,11 +22,7 @@
   <div hlmCardContent class="space-y-3">
     <p class="text-sm text-muted-foreground">Or using your credentials</p>
     <hlm-form-field>
-      <input formControlName="username" hlmInput placeholder="Username" />
-      <hlm-error>This field is required</hlm-error>
-    </hlm-form-field>
-        <hlm-form-field>
-      <input formControlName="name" hlmInput placeholder="Name">
+      <input formControlName="name" hlmInput placeholder="Name" />
       <hlm-error>This field is required</hlm-error>
     </hlm-form-field>
     <hlm-form-field>
@@ -61,9 +57,7 @@
         @if (form.controls.password.hasError('required')) { This field is
         required } @else if (form.controls.password.hasError('minlength')) {
         Password must be at least
-        {{
-          form.controls.password.getError("minlength").requiredLength
-        }}
+        {{ form.controls.password.getError("minlength").requiredLength }}
         characters long }
       </hlm-error>
     </hlm-form-field>

@@ -25,9 +25,8 @@ export class AuthService {
     );
   }
 
-  emailSignUp(email: string, password: string, username: string, role: string[]) {
+  emailSignUp(email: string, password: string, name: string, role: string[]) {
     return this.http.post(`${environment.apiBaseUrl}/auth/signup`, {
-      username: username,
       name: name,
       email: email,
       password: password,
