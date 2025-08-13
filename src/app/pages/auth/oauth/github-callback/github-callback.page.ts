@@ -26,7 +26,7 @@ export class GithubCallbackPage implements OnInit {
     const token = this.route.snapshot.queryParamMap.get('token');
     if (token) {
       this.completeSignIn(token).pipe(
-        switchMap(() => this.navigateFn(['/']))
+        switchMap(() => this.navigateFn(['/tasks/overview']))
       ).subscribe({
         error: (e: Error) => {
           toast.error('Could not sign you in', { description: e.message });

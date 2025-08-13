@@ -6,7 +6,7 @@ export const PrincipalSchema = z.object({
   avatar: z.string().nullable(),
   email: z.email(),
   roles: z.string().array().optional(),
-  names: z.string(),
+  name: z.string(),
   id: z.number()
 })
 export const AuthStateSchema = z.object({
