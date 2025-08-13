@@ -18,8 +18,8 @@ export class AuthService {
 
   credentialSignIn(email: string, password: string) {
     return this.http.post(`${environment.apiBaseUrl}/auth/signin`, {
-      username: email,
-      password
+      email: email,
+      password: password
     }).pipe(
       catchError(extractHttpError)
     );
